@@ -20,11 +20,3 @@ if ($_Server["REQUEST_METHOD"] == "POST") {
   </form>
 <a href="index.php">Tilbake</a>
     
-    
-    
-    
-    
-
-
-  
-}
