@@ -1,11 +1,11 @@
 <?php include "db.php";
-if ($_Server["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
   try {
       $stmt = $conn->prepare("INSERT INTO student (brukernavn,fornavn,etternavn,klassekode) VALUES (?,?,?, ?)");
-      $stmt->bind_param("ssss", $_POST["brukernavn"], $_POST["fornavn"], $_POST["etternavn"], $_POST["klassekode"]};
+      $stmt->bind_param("ssss", $_POST["brukernavn"], $_POST["fornavn"], $_POST["etternavn"], $_POST["klassekode"]);
       $stmt->execute();
       echo "Student registrert";
-  } catch (mysqli_sql_execaption $e) {
+  } catch (mysqli_sql_exception $e) {
     echo "Brukernavnet finnes fra før";
     
   }
