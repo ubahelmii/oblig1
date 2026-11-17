@@ -1,12 +1,12 @@
 <?php include "db.php";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-   try {
+    try {
        $stmt = $conn->prepare("DELETE FROM klasse WHERE klassekode = ?");
        $stmt->bind_param("s", $_POST["klassekode"]);
        $stmt->execute();
        echo "Klasse slettet";
-}catch (mysqli_sql_exeception $e) {
-  echo "Klassen har studenter og kan ikke slettes";
+} catch (mysqli_sql_exception $e) {
+   echo "Klassen har studenter og kan ikke slettes";
 }
 
 }
