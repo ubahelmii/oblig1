@@ -1,23 +1,16 @@
 <?php include "db.php";
 if ($_SERVER[REQUEST_METHOD"] == "POST") {
-   try {
-       $stmt = $conn->prepare(DELETE FROM klasse WHERE klassekode = ?");
-       $stmt->bind_param("s", $_POST["klassekode"]);
+       $stmt = $conn->prepare("DELETE FROM student WHERE brukernavn = ?");
+       $stmt->bind_param("s", $_POST["brukernavn"]);
        $stmt->execute();
-       echo "Klasse slettet";
-}catch (mysqli_sql_exeception $e) {
-  echo "Klassen har studenter og kan ikke slettes";
+       echo "Student slettet";
 }
-
-}
-
-$res = $conn->query("SELECT klassekode,klassenavn FROM klasse");
+$res = $conn->query("SELECT brukernavn,fornavn,etternavn FROM student");
 ?>
-<form method="post" onsubmit="return confirm('Er du sikker? ');">
-  <select name="klassekode">
+<form method="post" onsubmit="return confirm('Er du sikker?');">
+  <select name="brukernavn">
     <?php while ($r = $res->fetch_assoc())
-  echo "<option value='{$r['klassekode']}'>{$r['klassekode']} - {$r['klassenavn']}
-  </option>"; ?>
+  echo "<option value='{$r['brukernavn']}'>{$r['brukernavn']} - {$r['fornavn']}{$r['etternavn']}</option>"; ?>
   </select>
   <button>Slett</button>
 </form>
