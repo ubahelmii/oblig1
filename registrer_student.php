@@ -1,8 +1,8 @@
 <?php include "db.php";
 if ($_Server["REQUEST_METHOD"] == "POST") {
   try {
-      $stmt = $conn->prepare("INSERT INTO student (brukernavn,fornavn,etternavn,klassekode) VALUES (?,?,?, ?)")=;
-      $stmt->bind_param("sss", $_POST["klassekode"], $_POST["klassenavn"], $_POST["studiumkode"]};
+      $stmt = $conn->prepare("INSERT INTO student (brukernavn,fornavn,etternavn,klassekode) VALUES (?,?,?, ?)");
+      $stmt->bind_param("ssss", $_POST["klassekode"], $_POST["klassenavn"], $_POST["studiumkode"]};
       $stmt->execute();
       echo "Klasse registrert";
   } catch (mysqli_sql_execaption $e) {
