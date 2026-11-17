@@ -1,7 +1,7 @@
 <?php include "db.php";
 if ($_SERVER[REQUEST_METHOD"] == "POST") {
    try {
-       $stmt = $conn->prepare(DELETE FROM klasse WHERE klassekode = ?");
+       $stmt = $conn->prepare("DELETE FROM klasse WHERE klassekode = ?");
        $stmt->bind_param("s", $_POST["klassekode"]);
        $stmt->execute();
        echo "Klasse slettet";
