@@ -1,5 +1,5 @@
 <?php include "db.php";
-if ($_SERVER[REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
        $stmt = $conn->prepare("DELETE FROM student WHERE brukernavn = ?");
        $stmt->bind_param("s", $_POST["brukernavn"]);
        $stmt->execute();
