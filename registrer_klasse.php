@@ -15,7 +15,7 @@ if ($_Server["REQUEST_METHOD"] == "POST") {
   <form method="post">
     klassekode: <input name="klassekode" maxlength="5" required><br>
     klassenavn: <input name="klassenavn" required><br>
-    Studieumkode: <input name="studiumkode" required><br>
+    Studiumkode: <input name="studiumkode" required><br>
     <button>Registrer</button>
   </form>
 <a href="index.php">Tilbake</a>
